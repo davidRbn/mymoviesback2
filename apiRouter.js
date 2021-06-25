@@ -11,7 +11,6 @@ exports.router = (() => {
 
     apiRouter.route('/users/register').post(usersCtrl.register)
     apiRouter.route('/users/login').post(usersCtrl.login)
-    apiRouter.route('/getlogin').get(usersCtrl.getLogin)
 
     // Route FAVORIS
 

@@ -96,11 +96,5 @@ module.exports={
         .catch(err => {
             return res,status(500).json({'error':'unable to verify user'})
         })
-    },
-    getLogin : (req,res) => {
-
-        console.log(res)
-
     }
-
 }
