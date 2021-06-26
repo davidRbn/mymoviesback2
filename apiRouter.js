@@ -1,11 +1,13 @@
 const express = require('express')
 const usersCtrl = require('./routes/usersCtrl')
 const favori = require('./routes/favori')
+const cors = require('cors')
 
 
 
 exports.router = (() => {
     const apiRouter= express.Router()
+    apiRouter.use(cors())
      
     //Route USER
 

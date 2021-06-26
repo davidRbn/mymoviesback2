@@ -3,11 +3,11 @@ const app = express()
 const apiRouter = require('./apiRouter').router
 const mysql = require('mysql');
 const models = require('./models')
-const cors = require('cors')
 
+let headers = new Headers()
 
+headers.append('Access-Control-Allow-Origin', 'http://localhost:3000')
 
-apiRouter.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use('/api/',apiRouter)

@@ -69,6 +69,8 @@ module.exports={
         const email = req.body.email
         const password = req.body.password
 
+        console.log(email,password)
+
         if(email == null || password == null){
             return res.status(400).json({'error': 'missing paramaters'})
         } 
@@ -76,6 +78,7 @@ module.exports={
             where:{email:email}
         })
         .then((userFound) => {
+            console.log(userFound)
             if(userFound){
                 bcrypt.compare(password, userFound.password,(errBycrypt,resBycrypt)=>{
                     if(resBycrypt){
