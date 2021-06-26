@@ -16,7 +16,7 @@ exports.router = (() => {
 
     // Route FAVORIS
 
-    apiRouter.route('/favoris').post(favori.favoriPost)
+    apiRouter.route('/favoris/:id').post(favori.favoriPost)
     apiRouter.route('/favoris/:id').get(favori.favoriGet)
     apiRouter.route('/favoris/:idMovie/:idUser').delete(favori.favoriDelete)
 

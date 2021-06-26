@@ -8,8 +8,10 @@ module.exports = {
     favoriPost : (req,res) => {
    console.log(req.body);
        //Getting auth header
-        const headerAuth = req.headers['authorization']
-        const id = jwtUtils.getUserId(headerAuth)
+        // const headerAuth = req.headers['authorization']
+        // const id = jwtUtils.getUserId(headerAuth)
+       const id = req.params.id
+       
         const {userId,idMovie,typeMovie,img,title,details,description} = req.body
         models.Users.findOne({
             where: {id : id}
