@@ -9,11 +9,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use('/api/',apiRouter)
 
-app.use(function(req, res, next) {
+app.use(function(req, res) {
     res.header("Access-Control-Allow-Origin", "*"),
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"),
-    next(),
-  }),
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  })
 
 app.get('/',(req,res) =>{
     res.setHeader('Content-Type','text/html')
