@@ -94,7 +94,7 @@ module.exports={
 
         })
         .catch(err => {
-            return res,status(500).json({'error':'unable to verify user'})
+            return res.status(500).json({'error':'unable to verify user'})
         })
     }
 }
