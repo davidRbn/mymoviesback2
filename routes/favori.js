@@ -39,6 +39,9 @@ module.exports = {
                             res.status(409).json({'error' : 'Est déja dans la liste de vos favoris'})
                         }
                     })
+                    .catch(err => {
+                        return res.status(500).json({'error':'unable to verify favoris'})
+                    })
             }else{
                 res.status(404).json({'error' : 'user not found '})
             }
@@ -59,7 +62,9 @@ module.exports = {
                 res.json({'error': 'Vous n\'avez aucun favoris dans votre liste '})      
             }
         })
-        
+        .catch(err => {
+            return res.status(500).json({'error':'unable to verify favoris'})
+        })
     },
     favoriDelete : (req,res) => {
 
@@ -77,6 +82,10 @@ module.exports = {
                 res.status(404).json({'error' : 'Une erreur est survenue'})
             }
         })
+        .catch(err => {
+            return res.status(500).json({'error':'unable to verify favoris'})
+        })
+        
     }
 
 }
