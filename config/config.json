@@ -1,11 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
+    "password": "David140590",
+    "database": "mymovies",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  },
+},
   "test": {
     "username": "root",
     "password": null,
