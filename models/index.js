@@ -11,13 +11,12 @@ require('dotenv').config();
 
 
 const db = {};
-
+//test
 
 let sequelize;
 if (process.env.NODE_ENV === 'production') {
 
-
-  sequelize = new Sequelize(config.use_env_variable, config);
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
 //   const sequelizeURL = process.env[config.use_env_variable]
 // console.log(sequelizeURL,'hello')
 // sequelize = new Sequelize(sequelizeURL,config)
