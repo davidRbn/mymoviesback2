@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "David140590",
-    "database": "mymovies",
+    "database": "mymovies2",
     "host": "127.0.0.1",
     "dialect": "mysql"
 },

@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
 
     })
 
-
+ 
+    
     Favori.associate = models => {
         Favori.belongsTo(models.Users)
     }
