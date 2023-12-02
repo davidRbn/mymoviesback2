@@ -11,7 +11,7 @@ require('dotenv').config();
 
 
 const db = {};
-//test
+//test1
 
 let sequelize;
 if (process.env.NODE_ENV === 'production') {
