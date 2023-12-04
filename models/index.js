@@ -14,7 +14,7 @@ const db = {};
 //test1
 
 let sequelize;
-if (process.env.NODE_ENV === 'production') {
+if (config.use_env_variable) {
 
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 //   const sequelizeURL = process.env[config.use_env_variable]
