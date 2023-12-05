@@ -32,13 +32,8 @@ models
     .sync()
     .then(app.listen(process.env.PORT || 8080, () => {
         console.log('Server is running',process.env.PORT) 
-    }))
-    .catch(error => {
-        console.error('Error synchronizing Sequelize models:', error);
-    });
 
-
-    const connection = mysql.createConnection(process.env.JAWSDB_URL);
+        const connection = mysql.createConnection(process.env.JAWSDB_URL);
 
     console.log(process.env.JAWSDB_URL);
             connection.connect(function(err) {
@@ -55,3 +50,14 @@ models
             
               console.log('The solution is: ', rows[0].solution);
             });
+
+            connection.end()
+    }))
+
+
+    .catch(error => {
+        console.error('Error synchronizing Sequelize models:', error);
+    });
+
+
+    
