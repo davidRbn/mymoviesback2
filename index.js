@@ -3,12 +3,20 @@ const app = express()
 const apiRouter = require('./apiRouter').router
 const mysql = require('mysql');
 const models = require('./models')
+const cors = require('cors')
 require('dotenv').config();
+
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use('/api/',apiRouter)
+app.use(cors())
 
+app.options('/', (req, res) => {
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.send();
+});
 // app.use(function(req, res) {
 //     res.header("Access-Control-Allow-Origin", "*"),
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
@@ -44,7 +52,6 @@ models
 
             connection.end()
     }))
-
 
     .catch(error => {
         console.error('Error synchronizing Sequelize models:', error);
