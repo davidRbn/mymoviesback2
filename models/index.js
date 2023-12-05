@@ -19,19 +19,13 @@ let sequelize;
 if (config.use_env_variable) {
 console.log('object');
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-//   const sequelizeURL = process.env[config.use_env_variable]
-// console.log(sequelizeURL,'hello')
-// sequelize = new Sequelize(sequelizeURL,config)
 } else {
-  console.log('test');
   sequelize = new Sequelize(config.database, config.username, config.password,{
     host:'localhost',
     dialect:'mysql'
   });
 
 }
-
-console.log();
 
 fs
   .readdirSync(__dirname)
