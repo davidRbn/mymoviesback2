@@ -31,33 +31,27 @@ models
     .sequelize
     .sync()
     .then(app.listen(process.env.PORT || 8080, () => {
-        console.log('Server is running',process.env.PORT)
-   
-        const connection = mysql.createConnection(process.env.JAWSDB_URL);
-
-console.log(process.env.JAWSDB_URL);
-        connection.connect(function(err) {
-            if (err) {
-                console.error('Error connecting to the database:', err);
-                return;
-            }
-        
-            console.log('Connected to the database');
-        });
-        
-        connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-          if (err) throw err;
-        
-          console.log('The solution is: ', rows[0].solution);
-        });
-        
-           
-   
-   
+        console.log('Server is running',process.env.PORT) 
     }))
     .catch(error => {
         console.error('Error synchronizing Sequelize models:', error);
     });
 
 
+    const connection = mysql.createConnection(process.env.JAWSDB_URL);
 
+    console.log(process.env.JAWSDB_URL);
+            connection.connect(function(err) {
+                if (err) {
+                    console.error('Error connecting to the database:', err);
+                    return;
+                }
+            
+                console.log('Connected to the database');
+            });
+            
+            connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+              if (err) throw err;
+            
+              console.log('The solution is: ', rows[0].solution);
+            });
