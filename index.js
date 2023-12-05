@@ -35,7 +35,7 @@ models
    
         const connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-
+console.log(process.env.JAWSDB_URL);
         connection.connect(function(err) {
             if (err) {
                 console.error('Error connecting to the database:', err);

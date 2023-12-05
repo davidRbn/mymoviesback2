@@ -12,7 +12,7 @@ require('dotenv').config();
 
 const db = {};
 //test1
-
+console.log(process.env.NODE_ENV);
 let sequelize;
 if (config.use_env_variable) {
 
