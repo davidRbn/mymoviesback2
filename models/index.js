@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const env ='production';
+const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 require('dotenv').config();
 
@@ -17,6 +17,7 @@ const db = {};
 //test1
 let sequelize;
 if (config.use_env_variable) {
+console.log('object');
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 //   const sequelizeURL = process.env[config.use_env_variable]
 // console.log(sequelizeURL,'hello')
