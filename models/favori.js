@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     const Favori = sequelize.define('Favoris',{    
         idFavoris: {type : DataTypes.STRING, primaryKey: true},
-        userUid : {type: DataTypes.STRING},
+        userId : {type: DataTypes.STRING},
         idMovie : DataTypes.STRING , 
         typeMovie : DataTypes.STRING,
         img : DataTypes.STRING,
