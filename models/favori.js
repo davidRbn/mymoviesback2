@@ -21,9 +21,9 @@ module.exports = (sequelize, DataTypes) => {
 
  //model favori
     
-    Favori.associate = models => {
-        Favori.belongsTo(models.Users)
-    }
+    // Favori.associate = models => {
+    //     Favori.belongsTo(models.Users)
+    // }
 
   return Favori
 }
