@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     Favori.associate = models => {
         Favori.belongsTo(models.Users, {
             foreignKey: {
-                name: 'userId',
-                allowNull: true, // ou false en fonction de vos besoins
+                name: 'UserId',
+                allowNull: false, // ou false en fonction de vos besoins
             },
         })
     }

@@ -12,7 +12,7 @@ module.exports = {
         // const id = jwtUtils.getUserId(headerAuth)
        const id = req.params.id
        
-        const {userId,idMovie,typeMovie,img,title,details,description} = req.body
+        const {UserId,idMovie,typeMovie,img,title,details,description} = req.body
         models.Users.findOne({
             where: {id : id}
         })
@@ -21,12 +21,12 @@ module.exports = {
                 models.Favoris.findOne({
                         attributes : ['idMovie'],
                         where : {
-                           [Op.and] :[{idMovie : idMovie},{userId: id}] // verifier si idMovie et id user car sinon probleme!!!
+                           [Op.and] :[{idMovie : idMovie},{UserId: id}] // verifier si idMovie et id user car sinon probleme!!!
                 }})
                     .then(favori => {
                         if(!favori){
                             models.Favoris.create({
-                                userId : userId,
+                                UserId : userId,
                                 idMovie : idMovie,
                                 typeMovie : typeMovie,
                                 img : img,
