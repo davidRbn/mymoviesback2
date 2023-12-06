@@ -14,7 +14,7 @@ const db = {};
 // console.log('NODE_ENV:', process.env.NODE_ENV);
 // console.log('config.use_env_variable:', config.use_env_variable);
 // console.log(env);
-//test1
+//test12
 let sequelize;
 if (config.use_env_variable) {
 console.log('object');
