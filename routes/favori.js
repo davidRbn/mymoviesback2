@@ -12,7 +12,7 @@ module.exports = {
         // const id = jwtUtils.getUserId(headerAuth)
        const id = req.params.id
        
-        const {UserId,idMovie,typeMovie,img,title,details,description} = req.body
+        const {userUid,idMovie,typeMovie,img,title,details,description} = req.body
         models.Users.findOne({
             where: {id : id}
         })
@@ -21,12 +21,12 @@ module.exports = {
                 models.Favoris.findOne({
                         attributes : ['idMovie'],
                         where : {
-                           [Op.and] :[{idMovie : idMovie},{UserUid: id}] // verifier si idMovie et id user car sinon probleme!!!
+                           [Op.and] :[{idMovie : idMovie},{userUid: id}] // verifier si idMovie et id user car sinon probleme!!!
                 }})
                     .then(favori => {
                         if(!favori){
                             models.Favoris.create({
-                                UserUid : UserUid,
+                                userUid : userUid,
                                 idMovie : idMovie,
                                 typeMovie : typeMovie,
                                 img : img,
@@ -56,7 +56,7 @@ module.exports = {
        const userId = req.params.id
 
         models.Favoris.findAll({
-            where : {userId : userId }
+            where : {userUid : userId }
         }).then(favoris =>{
             if (favoris.length != 0){
             res.status(201).json(favoris)
@@ -75,7 +75,7 @@ module.exports = {
 
         models.Favoris.destroy({
             where : {
-            [Op.and] :[{idMovie : idMovie},{userId: idUser}]
+            [Op.and] :[{idMovie : idMovie},{userUid: idUser}]
         }})
         .then(movie => {
             if(movie > 0){
