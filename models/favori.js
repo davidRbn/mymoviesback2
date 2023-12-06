@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     const Favori = sequelize.define('Favoris',{    
         idFavoris: {type : DataTypes.STRING, primaryKey: true},
-        userId : {type: DataTypes.STRING},
+        // userId : {type: DataTypes.STRING},
         idMovie : DataTypes.STRING , 
         typeMovie : DataTypes.STRING,
         img : DataTypes.STRING,
@@ -22,7 +22,12 @@ module.exports = (sequelize, DataTypes) => {
  //model favori
     
     Favori.associate = models => {
-        Favori.belongsTo(models.Users)
+        Favori.belongsTo(models.Users, {
+            foreignKey: {
+                name: 'userId',
+                allowNull: true, // ou false en fonction de vos besoins
+            },
+        })
     }
 
   return Favori
