@@ -4,6 +4,7 @@ const apiRouter = require('./apiRouter').router
 const mysql = require('mysql');
 const models = require('./models')
 const cors = require('cors')
+const port =process.env.PORT || 8080
 require('dotenv').config();
 
 
@@ -31,8 +32,8 @@ app.get('/',(req,res) =>{
 models
     .sequelize
     .sync()
-    .then(app.listen(process.env.PORT || 8080, () => {
-        console.log('Server is running',process.env.PORT) 
+    .then(app.listen(port, () => {
+        console.log('Server is running',port) 
 
         const connection = mysql.createConnection(process.env.JAWSDB_URL);
 
@@ -50,8 +51,6 @@ models
             
               console.log('The solution is: ', rows[0].solution);
             });
-
-            connection.end()
     }))
 
     .catch(error => {
