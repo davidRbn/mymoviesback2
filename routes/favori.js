@@ -26,7 +26,7 @@ module.exports = {
                     .then(favori => {
                         if(!favori){
                             models.Favoris.create({
-                                UserId : userId,
+                                UserId : UserId,
                                 idMovie : idMovie,
                                 typeMovie : typeMovie,
                                 img : img,
