@@ -21,12 +21,12 @@ module.exports = {
                 models.Favoris.findOne({
                         attributes : ['idMovie'],
                         where : {
-                           [Op.and] :[{idMovie : idMovie},{UserId: id}] // verifier si idMovie et id user car sinon probleme!!!
+                           [Op.and] :[{idMovie : idMovie},{UserUid: id}] // verifier si idMovie et id user car sinon probleme!!!
                 }})
                     .then(favori => {
                         if(!favori){
                             models.Favoris.create({
-                                UserId : UserId,
+                                UserUid : UserUid,
                                 idMovie : idMovie,
                                 typeMovie : typeMovie,
                                 img : img,
