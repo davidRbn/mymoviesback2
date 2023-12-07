@@ -58,7 +58,7 @@ module.exports = {
         models.Favoris.findAll({
             where : {userUid : userId }
         }).then(favoris =>{
-            if (favoris.length != 0){
+            if (favoris.length !== 0){
             res.status(201).json(favoris)
             }else{
                 res.json({'error': 'Vous n\'avez aucun favoris dans votre liste '})      
