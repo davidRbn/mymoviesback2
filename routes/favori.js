@@ -65,6 +65,7 @@ module.exports = {
             }
         })
         .catch(err => {
+            console.error('Error fetching favoris:', err);
             return res.status(500).json({'error':'unable to verify favoris'})
         })
     },
