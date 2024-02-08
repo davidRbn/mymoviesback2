@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const apiRouter = require("./apiRouter").router;
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const models = require("./models");
 const cors = require("cors");
+const { createPool } = require("mysql2");
 const port = process.env.PORT || 8080;
 require("dotenv").config();
 
@@ -29,6 +30,16 @@ models.sequelize
       console.log("Server is running", port);
 
       const connection = mysql.createConnection(process.env.JAWSDB_URL);
+      // const connection = mysql.createConnection({
+      //   host: process.env.DB_Host,
+      //   port: process.env.DB_Port,
+      //   user: process.env.DB_User,
+      //   password: process.env.DB_Pass,
+      //   database: process.env.DB_Data,
+      //   waitForConnections: true,
+      //   connectionLimit: 10,
+      //   queueLimit: 0,
+      // });
 
       connection.connect(function (err) {
         if (err) {
